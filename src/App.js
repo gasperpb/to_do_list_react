@@ -13,10 +13,18 @@ function App() {
     });
     inputRerf.current.value = "";
   }
+  function onChange(e) {
+    const value = e.target.value;
+    setItems((prev) => {
+      return prev.filter((item) =>
+        item.toLowerCase().includes(value.toLowerCase())
+      );
+    });
+  }
   return (
     <>
       Search
-      <input type="search" />
+      <input onChange={onChange} type="search" />
       <br />
       <br />
       <form onSubmit={onSubmit}>
